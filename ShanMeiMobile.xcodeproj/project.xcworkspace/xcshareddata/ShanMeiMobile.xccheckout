@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E5C212AF-0DE5-49B0-8950-B2586EBBA95F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ShanMeiMobile</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</key>
+		<string>http://192.168.0.243/ShanMeiMobile.git</string>
+		<key>CC9E6813401FC20BF860D9A1BE28999344063381</key>
+		<string>http://192.168.0.243/guizhouluzheng.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ShanMeiMobile.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</key>
+		<string>../..</string>
+		<key>CC9E6813401FC20BF860D9A1BE28999344063381</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CC9E6813401FC20BF860D9A1BE28999344063381</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ShanMeiMobileShanMei</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ShanMeiMobileShanMei</string>
+		</dict>
+	</array>
+</dict>
+</plist>

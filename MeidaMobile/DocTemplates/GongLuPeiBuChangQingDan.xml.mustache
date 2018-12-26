@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdf:template>  
+    {{! 公路赔(补)偿清单 }}
+	<pdf:paper width="595.276" height="836.89" fontName="SimSun" fontSize="10" offset="12,3.5"/>
+	<pdf:content>
+        <pdf:text point="top-left:62,21" fontSize="13">广东省公路管理局汕梅路政大队</pdf:text>
+		<pdf:text point="top-left:56,27.7" fontName="SimHei" fontSize="15">损 坏 公 路 设 施 索 赔 清 单</pdf:text>
+		<pdf:line fromPoint="53.5,33.3" toPoint="135.5,33.3" lineWidth="0.8"/>
+		<pdf:line fromPoint="53.5,34" toPoint="135.5,34" lineWidth="0.8"/>
+		
+		
+		
+        
+        <pdf:table rect="{10,44.5},{179,225}" borderWidth="1.0" lineWidth="0.5" padding="1">
+            
+            <!--案发地点。时间  CaseCountPrintViewController-->
+            <pdf:tr height="17">
+                <pdf:td width="11">案发\n地点</pdf:td>
+            	<pdf:td width="85" static="NO" textAlignment="left">{{ case.place }}</pdf:td>
+            	<pdf:td width="15">时间</pdf:td>
+            	<pdf:td width="67.6" textAlignment="left">
+                    
+                    <pdf:text point="mid-left:13,5.5">   年   月   日   时   分</pdf:text>
+                    
+                    <pdf:text point="mid-left:1,9" static="NO">{{case.year}}</pdf:text>
+                    <pdf:text point="mid-left:16,9" static="NO">{{case.month}}</pdf:text>
+                    <pdf:text point="mid-left:26,9" static="NO">{{case.day}}</pdf:text>
+                    <pdf:text point="mid-left:35,9" static="NO">{{case.hour}}</pdf:text>
+                    <pdf:text point="mid-left:45,9" static="NO">{{case.min}}</pdf:text>
+                    
+                </pdf:td>
+            </pdf:tr>
+            
+            <!--当事人。车号。车型-->
+            <pdf:tr height="6">
+                <pdf:td width="15">单  位\n当事人</pdf:td>
+            	<pdf:td width="85" static="NO" textAlignment="left">{{ citizen.name }}</pdf:td>
+            	
+            	<pdf:td width="13">车号</pdf:td>
+            	<pdf:td width="19" static="NO">{{ citizen.car_number }}</pdf:td>
+                
+                <pdf:td width="13">车型</pdf:td>
+            	<pdf:td width="31" static="NO" textAlignment="left">{{ citizen.car_model }}</pdf:td>
+            </pdf:tr>
+            
+            <!--损坏公路情况-->
+            <pdf:tr height="149">
+                
+                <pdf:td width="15" textAlignment="center">损\n\n\n坏\n\n\n公\n\n\n路\n\n\n设\n\n\n施\n\n\n情\n\n\n况</pdf:td>
+                
+                <pdf:td width="164" textAlignment="center">
+                    
+                    <pdf:table rect = "{0,0},{164,149}" borderWidth = "0.5" lineWidth = "0.5" padding = "1">
+                        <pdf:tr height="9.3">
+                            
+                            <pdf:td width="49" height="9.3" textAlignment="center">项     目</pdf:td>
+                            <pdf:td width="13" height="9.3" textAlignment="center">数量</pdf:td>
+                            <pdf:td width="12.8" height="9.3" textAlignment="center">单位</pdf:td>
+                            <pdf:td width="20" height="9.3" textAlignment="center">单价(元)</pdf:td>
+                            <pdf:td width="23" height="9.3" textAlignment="center">额定金额(元)</pdf:td>
+                            <pdf:td width="46.7" height="9.3" textAlignment="center">备  注</pdf:td>
+                            
+                        </pdf:tr>
+                        
+                        {{#items}}
+                        <pdf:tr height="8.22">
+                            <pdf:td width="47" textAlignment="left" static="NO" maxWidth="47">{{ .name }}</pdf:td>
+                            <pdf:td width="12" static="NO" textAlignment="left">{{ .quantity }}</pdf:td>
+                            <pdf:td width="14.8" static="NO" textAlignment="left">{{ .unit }}</pdf:td>
+                            <pdf:td width="19" static="NO">{{ .unit_price }}</pdf:td>
+                            <pdf:td width="23" static="NO">{{ .total_price }}</pdf:td>
+                            <pdf:td width="47.8" static="NO">{{ .remark }}</pdf:td>
+                        </pdf:tr>
+                        {{/items}}
+                    </pdf:table>
+                    
+                </pdf:td>
+                
+            </pdf:tr>
+            
+            <!--合计-->
+            <pdf:tr height="9">
+                <pdf:td width="15" textAlignment="center">合计</pdf:td>
+            	<pdf:td width="164" textAlignment="center">
+                    <pdf:text point="mid-left:-2.2,5.3" static="NO">{{ money.type }} </pdf:text>
+            		<pdf:text point="mid-left:8.5,5.3" static="NO">{{ money.wan }} </pdf:text>
+            		<pdf:text point="mid-left:18,4.55">万</pdf:text>
+                    
+            		<pdf:text point="mid-left:22,5.3" static="NO">{{ money.qian }} </pdf:text>
+                    
+            		<pdf:text point="mid-left:32,4.55">仟</pdf:text>
+                    
+            		<pdf:text point="mid-left:36.2,5.3" static="NO">{{ money.bai }} </pdf:text>
+                     
+                    
+            		<pdf:text point="mid-left:45,4.55">佰</pdf:text>
+                    
+            		<pdf:text point="mid-left:51.2,5.3" static="NO">{{ money.shi }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:60,4.55">拾</pdf:text>
+                    
+            		<pdf:text point="mid-left:66.2,5.3" static="NO">{{ money.yuan }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:73.5,4.55">元</pdf:text>
+                    
+            		<pdf:text point="mid-left:80.2,5.3" static="NO">{{ money.jiao }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:87,4.55">角</pdf:text>
+                    
+            		<pdf:text point="mid-left:93.8,5.3" static="NO">{{ money.fen }} </pdf:text>
+                    
+            		<pdf:text point="mid-left:99,4.55">分（</pdf:text>
+                    
+                    <pdf:text point="mid-left:107,5.3" static="NO">{{money.xiaoxie}}</pdf:text>
+                    
+                    <pdf:text point="mid-left:135,4.55">元）</pdf:text>
+            	</pdf:td>
+            </pdf:tr>
+            
+            <!--备注-->
+            <pdf:tr height="40">
+                <pdf:td width="179" textAlignment="left">
+                    <pdf:text point="mid-left:7,9.55" >备注：</pdf:text>
+                    <pdf:paragraph rect = "{19,9.55},{160,50 }" paragraph point = "mid-left:2,1" lineHeight = "5" static = "NO">{{ comment }}</pdf:paragraph>
+                </pdf:td>
+                
+            </pdf:tr>
+            <!--应付金额-->
+            <pdf:tr height="5">
+                <pdf:td width="179" textAlignment="center">
+                    
+                    <pdf:text point="mid-left:10,5.55" >应付金额(大写)</pdf:text>
+                 
+            		<pdf:text point="mid-left:42,2.5" static="NO">{{ money.wan }} </pdf:text>
+            		<pdf:text point="mid-left:52,5.55">万</pdf:text>
+                    
+            		<pdf:text point="mid-left:57,2.5" static="NO">{{ money.qian }} </pdf:text>
+                    
+            		<pdf:text point="mid-left:66,5.55">仟</pdf:text>
+                    
+            		<pdf:text point="mid-left:73,2.5" static="NO">{{ money.bai }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:80,5.55">佰</pdf:text>
+                    
+            		<pdf:text point="mid-left:86,2.5" static="NO">{{ money.shi }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:94,5.55">拾</pdf:text>
+                    
+            		<pdf:text point="mid-left:99.5,2.5" static="NO">{{ money.yuan }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:108,5.55">元</pdf:text>
+                    
+            		<pdf:text point="mid-left:114.5,2.5" static="NO">{{ money.jiao }} </pdf:text>
+                    
+                    
+            		<pdf:text point="mid-left:122,5">角</pdf:text>
+                    
+            		<pdf:text point="mid-left:127.5,2.5" static="NO">{{ money.fen }} </pdf:text>
+                    
+            		<pdf:text point="mid-left:128,5.55">分（</pdf:text>
+                    
+                    <pdf:text point="mid-left:141.8,2.5" static="NO">{{money.xiaoxie}}</pdf:text>
+                    
+                    <pdf:text point="mid-left:163,5.55">元）</pdf:text>
+            	</pdf:td>
+            </pdf:tr>
+        </pdf:table>
+        <!--
+         <pdf:table rect="{20,42},{155,215.5}" borderWidth="1.0" lineWidth="0.5" padding="1">
+         <pdf:tr height="11.11">
+         
+         <pdf:td width="15.5">案  发\n地  点</pdf:td>
+         <pdf:td width="80.5" static="NO">{{ case.place }}</pdf:td>
+         <pdf:td width="15">时 间</pdf:td>
+         <pdf:td width="44" textAlignment="left" static="NO">{{ case.date }}</pdf:td>
+         
+         
+         </pdf:tr>
+         <pdf:tr height="14">
+         
+         <pdf:td width="15.5">当事人</pdf:td>
+         <pdf:td width="40.5" static="NO">{{ citizen.name }}</pdf:td>
+         
+         <pdf:td width="15">车 号</pdf:td>
+         <pdf:td width="44" static="NO">{{ citizen.car_number }}</pdf:td>
+         
+         <pdf:td width="12">车 型</pdf:td>
+         <pdf:td width="28" static="NO">{{ citizen.car_model }}</pdf:td>
+         </pdf:tr>
+         
+         <pdf:tr height="15">
+         <pdf:td width="15.5">单 位</pdf:td>
+         <pdf:td width="80.5" static="NO">{{ citizen.org }}</pdf:td>
+         <pdf:td width="15">联系\n电话</pdf:td>
+         <pdf:td width="44" static="NO">{{ citizen.tel }}</pdf:td>
+         </pdf:tr>
+         
+         <pdf:tr height="9.8">
+         
+         <pdf:td width="51.5" textAlignment="center">项目</pdf:td>
+         <pdf:td width="14" textAlignment="center">单 位</pdf:td>
+         <pdf:td width="15" textAlignment="center">数 量</pdf:td>
+         <pdf:td width="22" textAlignment="center">单价(元)</pdf:td>
+         <pdf:td width="22" textAlignment="center">金额(元)</pdf:td>
+         <pdf:td width="22" textAlignment="center">备注</pdf:td>
+         </pdf:tr>
+         {{! 赔补偿项目列表 }}
+         {{#items}}
+         <pdf:tr height="9.8">
+         <pdf:td width="15.5" >{{ .id }}</pdf:td>
+         <pdf:td width="51.5" textAlignment="left" static="NO">{{ .name }}</pdf:td>
+         <pdf:td width="15" static="NO">{{ .size }}</pdf:td>
+         <pdf:td width="14" static="NO">{{ .unit }}</pdf:td>
+         <pdf:td width="15" static="NO">{{ .quantity }}</pdf:td>
+         <pdf:td width="22" static="NO">{{ .unit_price }}</pdf:td>
+         <pdf:td width="22" static="NO">{{ .total_price }}</pdf:td>
+         </pdf:tr>
+         {{/items}}
+         <pdf:tr height="9.8">
+         <pdf:td width="15.5" textAlignment="center">合计</pdf:td>
+         <pdf:td width="139.5" textAlignment="center">
+         <pdf:text point="mid-left:1,5.55">人民币（大写）：</pdf:text>
+         <pdf:text point="mid-left:27,5.55" static="NO">{{ money.wan }} </pdf:text>
+         <pdf:text point="mid-left:34,5.55">万</pdf:text>
+         
+         <pdf:text point="mid-left:41,5.55" static="NO">{{ money.qian }} </pdf:text>
+         
+         <pdf:text point="mid-left:49,5.55">仟</pdf:text>
+         
+         <pdf:text point="mid-left:56,5.55" static="NO">{{ money.bai }} </pdf:text>
+         
+         
+         <pdf:text point="mid-left:64,5.55">佰</pdf:text>
+         
+         <pdf:text point="mid-left:71,5.55" static="NO">{{ money.shi }} </pdf:text>
+         
+         
+         <pdf:text point="mid-left:79,5.55">拾</pdf:text>
+         
+         <pdf:text point="mid-left:86,5.55" static="NO">{{ money.yuan }} </pdf:text>
+         
+         
+         <pdf:text point="mid-left:94,5.55">元</pdf:text>
+         
+         <pdf:text point="mid-left:102,5.55" static="NO">{{ money.jiao }} </pdf:text>
+         
+         
+         <pdf:text point="mid-left:110,5.55">角</pdf:text>
+         
+         <pdf:text point="mid-left:114,5.55" static="NO">{{ money.fen }} </pdf:text>
+         
+         
+         <pdf:text point="mid-left:118,5.55">分</pdf:text>
+         
+         <pdf:text point="mid-left:123,5.55" static="NO">{{ money.xiaoxie }}</pdf:text>
+         </pdf:td>
+         </pdf:tr>
+         <pdf:tr height="29">
+         <pdf:td width="15.5" textAlignment="center">备注</pdf:td>
+         <pdf:td width="139.5" textAlignment="left" static="NO">{{ comment }}</pdf:td>
+         </pdf:tr>
+         <pdf:tr height="29">
+         <pdf:td width="155" textAlignment="left">告知事项：\n1、路政案件处理地址：中山市东升镇星月街高速公路管理中心办公楼二楼路政队\n2、办公时间：周一至周五上午8:00-12:00；下午14:30-17:30；\n3、办公电话（传真）：0760-22213325\n4、在交警结案前，应先办理路产赔（补）偿手续。</pdf:td>
+         </pdf:tr>
+         </pdf:table>-->
+	</pdf:content>
+</pdf:template>

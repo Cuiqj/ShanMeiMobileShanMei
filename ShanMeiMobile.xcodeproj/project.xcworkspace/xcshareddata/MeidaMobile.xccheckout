@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4F17A9FB-28D9-41DF-BFEA-E80D0C64CC0D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MeidaMobile</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</key>
+		<string>http://svn.edaoyou.com/edaoyou/MeidaMobile</string>
+		<key>CC9E6813401FC20BF860D9A1BE28999344063381</key>
+		<string>http://192.168.0.243/test.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MeidaMobile.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</key>
+		<string>../..</string>
+		<key>CC9E6813401FC20BF860D9A1BE28999344063381</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</key>
+		<string>http://svn.edaoyou.com/edaoyou</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://192.168.0.243/MeidaMobileMeiDa.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CC9E6813401FC20BF860D9A1BE28999344063381</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MeidaMobileMeiDa</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2693a6d5-1ebd-46bd-a85d-33a72c51ae1b++7155</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MeidaMobileMeiDa</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -51,6 +51,4 @@
 
 #define VERSION_NAME @"汕梅路政"
 //#define VERSION_TIME @"2018年08月23日"
-#define VERSION_TIME @"2018年10月22日"
-//https://www.example.com.image.57x57.png
-
+#define VERSION_TIME @"2019年10月21日"

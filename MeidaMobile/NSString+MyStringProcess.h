@@ -10,6 +10,8 @@
 #import "HandleStrings.h"
 @interface NSString (MyStringProcess)
 
+@property (readonly) long double longdoubleValue;
+    
 //在方框内居中绘制文字，lineBreakMode：WordWarp
 - (CGSize)alignWithVerticalCenterDrawInRect:(CGRect)rect withFont:(UIFont *)font horizontalAlignment:(UITextAlignment)alignment;
 

@@ -20,10 +20,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelQuantity;
 @property (weak, nonatomic) IBOutlet UITextField *textQuantity;
+//数量    所选清单中路产   填写的数量
 @property (weak, nonatomic) IBOutlet UILabel *labelLength;
 @property (weak, nonatomic) IBOutlet UITextField *textLength;
+//长     选择填写的长
 @property (weak, nonatomic) IBOutlet UILabel *labelWidth;
 @property (weak, nonatomic) IBOutlet UITextField *textWidth;
+//宽     选择填写的宽
 @property (weak, nonatomic) IBOutlet UIButton *btnAddDeform;
 @property (weak, nonatomic) IBOutlet UILabel *labelPrice;
 @property (weak, nonatomic) IBOutlet UITextField *textPrice;

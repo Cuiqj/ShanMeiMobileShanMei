@@ -44,13 +44,19 @@
     return CHINESE_ARRAY[i];
 }
 -(NSString *) chinese_sum_j{
-    int summ= [ self.sum floatValue]*100;
-    int i=  (summ%100 )/10;
+    NSDecimalNumber * sum = [NSDecimalNumber decimalNumberWithString:[self.sum stringValue]];
+    NSDecimalNumber * tempmid =[NSDecimalNumber decimalNumberWithString:@"100"];
+    NSDecimalNumber * resultmoney = [sum decimalNumberByMultiplyingBy:tempmid];
+//    int summ= [self.sum floatValue]*100;
+    int i=  ([resultmoney integerValue]%100 )/10;
     return CHINESE_ARRAY[i];
 }
 -(NSString *) chinese_sum_f{
-    int summ= [ self.sum floatValue]*100;
-    int i=  (summ%10 );
+    NSDecimalNumber * sum = [NSDecimalNumber decimalNumberWithString:[self.sum stringValue]];
+    NSDecimalNumber * tempmid =[NSDecimalNumber decimalNumberWithString:@"100"];
+    NSDecimalNumber * resultmoney = [sum decimalNumberByMultiplyingBy:tempmid];
+//    int summ= [ self.sum floatValue]*100;
+    int i=  ([resultmoney integerValue]%10 );
     return CHINESE_ARRAY[i];
 }
 @end

@@ -6,6 +6,8 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import "NSString+MyStringProcess.h"
+//测试是否可以使用 long double
 #import "DeformationInfoViewController.h"
 
 #define CUSTOM_ROAD_ASSET_LABEL @"自定义路产"
@@ -238,24 +240,25 @@
 }
 
 //长宽输入变化时自动计算数量
-- (IBAction)textNumberChanged:(id)sender {    
-    if (![self.textLength.text isEmpty] && ![self.textWidth.text isEmpty]) {
-        double length=self.textLength.text.doubleValue;
-        double width=self.textWidth.text.doubleValue;
-        self.textQuantity.text=[NSString stringWithFormat:@"%.3f",length*width];
-        NSIndexPath* indexPath=[self.roadAssetListView indexPathForSelectedRow];
-        if (indexPath!=nil){
-            double assetPrice=[[[self.roadAssetWithLabel objectAtIndex:indexPath.row] valueForKey:@"price"] doubleValue];
-            double payPrice=assetPrice*length*width;
-            self.textPrice.text=[NSString stringWithFormat:@"%.2f元",payPrice];
-        }
-    }
+- (IBAction)textNumberChanged:(id)sender {
+//    只在备注中显示 长X宽
+//    if (![self.textLength.text isEmpty] && ![self.textWidth.text isEmpty]) {
+//        double length=self.textLength.text.doubleValue;
+//        double width=self.textWidth.text.doubleValue;
+//        self.textQuantity.text=[NSString stringWithFormat:@"%.4f",length*width];
+//        NSIndexPath* indexPath=[self.roadAssetListView indexPathForSelectedRow];
+//        if (indexPath!=nil){
+//            double assetPrice=[[[self.roadAssetWithLabel objectAtIndex:indexPath.row] valueForKey:@"price"] doubleValue];
+//            double payPrice=assetPrice*length*width;
+//            self.textPrice.text=[NSString stringWithFormat:@"%.2f元",payPrice];
+//        }
+//    }
 }
 
 //数量输入变化时自动计算金额
 -(void)textFieldTextDidChange:(NSNotification *)aNotifocation{
-    self.textLength.text=@"";
-    self.textWidth.text=@"";
+//    self.textLength.text=@"";
+//    self.textWidth.text=@"";
     double payPrice = 0.0f;
     if (![self isUsingCustomRoadAsset]) {
         NSIndexPath* indexPath=[self.roadAssetListView indexPathForSelectedRow];
@@ -349,7 +352,22 @@
             newRoadAssetPrice.name = self.customRoadAssetNameTextField.text;
             newRoadAssetPrice.spec = self.customRoadAssetSpecTextField.text;
             newRoadAssetPrice.unit_name = self.customRoadAssetUnitTextField.text;
-            newRoadAssetPrice.price = @(self.customRoadAssetUnitPriceTextField.text.doubleValue);
+            
+            //            NSRoundPlain,   // Round up on a tie ／／貌似取整 翻译出来是个圆 吗的垃圾百度翻译
+            //            NSRoundDown,    // Always down == truncate  ／／只舍不入
+            //            NSRoundUp,      // Always up    ／／ 只入不舍
+            //            NSRoundBankers  // on a tie round so last digit is even  貌似四舍五入
+            //90.7049+0.22 然后四舍五入
+            if([self.customRoadAssetUnitPriceTextField.text componentsSeparatedByString:@"."].count >1){
+                NSDecimalNumberHandler *roundUp = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers scale:2 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:YES];
+                NSString * str1 = [self.customRoadAssetUnitPriceTextField.text componentsSeparatedByString:@"."][0];
+                NSString * str2 =[NSString stringWithFormat:@"0.%@",[self.customRoadAssetUnitPriceTextField.text componentsSeparatedByString:@"."][1]];
+                NSDecimalNumber * subtotal = [NSDecimalNumber decimalNumberWithString:str1];
+                NSDecimalNumber *discount = [NSDecimalNumber decimalNumberWithString:str2];
+                newRoadAssetPrice.price = [subtotal decimalNumberByAdding:discount withBehavior:roundUp];
+            }else{
+                newRoadAssetPrice.price = @(self.customRoadAssetUnitPriceTextField.text.doubleValue);
+            }
         }
         if ((![self.textLength.text isEmpty]) && (![self.textWidth.text isEmpty])) {
             remark=[NSString stringWithFormat:@"长%@米、宽%@米",self.textLength.text,self.textWidth.text];

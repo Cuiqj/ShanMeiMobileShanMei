@@ -63,6 +63,9 @@ static NSString * const xmlName = @"CaseCountTable";
     NSManagedObjectContext *context=[[AppDelegate App] managedObjectContext];
     NSEntityDescription *entity=[NSEntityDescription entityForName:@"CaseCount" inManagedObjectContext:context];
     self.caseCount = [[CaseCount alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+//    if ([self.caseCount.sum doubleValue] != summary) {
+//        self.caseCount.sum = @(summary);
+//    }
     self.caseCount.caseinfo_id = self.caseID;
 }
 
@@ -72,6 +75,18 @@ static NSString * const xmlName = @"CaseCountTable";
     
     self.caseCount.citizen_name = self.labelParty.text;
     self.caseCount.sum = [NSNumber numberWithDouble:[[NSString stringWithString:self.labelPayReal.text] doubleValue]];
+    if([self.labelPayReal.text containsString:@".00"]){
+        self.caseCount.sum = [NSNumber numberWithDouble:[[NSString stringWithString:self.labelPayReal.text] doubleValue]];
+    }else{
+        NSArray * sumrarray = [self.labelPayReal.text componentsSeparatedByString:@"."];
+        if ([sumrarray count] > 1) {
+            NSDecimalNumber * num1 = [NSDecimalNumber decimalNumberWithString:sumrarray[0]];
+            NSDecimalNumber * num2 = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"0.%@",sumrarray[1]]];
+            self.caseCount.sum = [num2 decimalNumberByAdding:num1];
+        }else{
+            self.caseCount.sum = [NSNumber numberWithDouble:[[NSString stringWithString:self.labelPayReal.text] doubleValue]];
+        }
+    }
     self.caseCount.chinese_sum = [[NSNumber numberWithDouble:[self.caseCount.sum doubleValue]] numberConvertToChineseCapitalNumberString];
 //    self.caseCount.case_count_list = [NSArray arrayWithArray:self.data];
     [[AppDelegate App] saveContext];
@@ -391,7 +406,7 @@ static NSString * const xmlName = @"CaseCountTable";
                               @"size": caseDeform.rasset_size,
                               @"unit": caseDeform.unit,
                               @"quantity": [NSString stringWithFormat:@"%.2f",caseDeform.quantity.floatValue],
-                              @"unit_price": caseDeform.price,
+                              @"unit_price": [NSString stringWithFormat:@"%.2f",caseDeform.price.floatValue],
                               @"total_price": [NSString stringWithFormat:@"%.2f",caseDeform.total_price.floatValue],
                               @"remark": caseDeform.remark};
             NSLog(@"展示：%@",item);

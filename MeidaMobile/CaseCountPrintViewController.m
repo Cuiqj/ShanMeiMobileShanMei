@@ -236,9 +236,11 @@ static NSString * const xmlName = @"CaseCountTable";
     //cell.labelAssetSize.text = caseDeformation.rasset_size;
     
     if ([caseDeformation.unit rangeOfString:@"米"].location != NSNotFound) {
-        cell.labelQunatity.text=[NSString stringWithFormat:@"%.2f",caseDeformation.quantity.doubleValue];
+//        cell.labelQunatity.text=[NSString stringWithFormat:@"%.2f",caseDeformation.quantity.doubleValue];
+        cell.labelQunatity.text = [CaseDeformation stringforfloat:caseDeformation.quantity.doubleValue];
     } else {
-        cell.labelQunatity.text=[NSString stringWithFormat:@"%.2f",caseDeformation.quantity.floatValue];
+//        cell.labelQunatity.text=[NSString stringWithFormat:@"%.2f",caseDeformation.quantity.floatValue];
+        cell.labelQunatity.text=[CaseDeformation stringforfloat:caseDeformation.quantity.floatValue];
     }
     cell.labelAssetUnit.text = caseDeformation.unit;
     cell.labelPrice.text = [NSString stringWithFormat:@"%.2f元",caseDeformation.price.floatValue];
@@ -367,45 +369,20 @@ static NSString * const xmlName = @"CaseCountTable";
 //    self.data = [[CaseDeformation deformationsForCase:self.caseID forCitizen:citizen.automobile_number] mutableCopy];
     if (self.data != nil) {
         int i = 0;
-        NSLog(@"self的数据显示：%@",self.data);
-//        CaseDeformation * caseDeform;
-//        for (int n = 0,caseDeform =(CaseDeformation *)[[self.data objectAtIndex:n]objectForKey:@"CaseDeform"]; caseDeform != nil; n++) {
-////            NSLog(@"查看CaseDeform数据%@",caseDeform);
-//            if (i >= 11) {
-//                break;
-//            }
-//            id singleItem = @{
-//                              @"id": @(i+1),
-//                              @"name": caseDeform.roadasset_name,
-//                              @"size": caseDeform.rasset_size,
-//                              @"unit": caseDeform.unit,
-//                              @"quantity": caseDeform.quantity,
-//                              @"unit_price": caseDeform.price,
-//                              @"total_price": [NSString stringWithFormat:@"%.2f",caseDeform.total_price.floatValue],
-//                              //改动
-//                              @"remark": caseDeform.remark
-//                              };
-//            [itemsData addObject:singleItem];
-//            i++;
-//            emptyItemCnt--;
-//        }
+//        NSLog(@"self的数据显示：%@",self.data);
         for (CaseDeformation * caseDeform in self.data) {
             NSLog(@"查看CaseDeform数据%@",caseDeform);
             if (i >= 17) {
                 break;
             }
-//            NSLog(@"先展示看看1%@2%@3%@4%@5%@6%@7%@",caseDeform.roadasset_name,caseDeform.rasset_size,caseDeform.unit,caseDeform.quantity,caseDeform.price, [NSString stringWithFormat:@"%.2f",caseDeform.total_price.floatValue],caseDeform.remark);
-//            if ([caseDeform.remark isEqualToString:@"给remark赋值"]) {
-//            }
-            
             caseDeform.rasset_size = @" ";
-//            caseDeform.remark = @" ";
+            
             id item = @{
                               @"id": @(i+1),
                               @"name": caseDeform.roadasset_name,
                               @"size": caseDeform.rasset_size,
                               @"unit": caseDeform.unit,
-                              @"quantity": [NSString stringWithFormat:@"%.2f",caseDeform.quantity.floatValue],
+                              @"quantity": [CaseDeformation stringforfloat:caseDeform.quantity.floatValue],
                               @"unit_price": [NSString stringWithFormat:@"%.2f",caseDeform.price.floatValue],
                               @"total_price": [NSString stringWithFormat:@"%.2f",caseDeform.total_price.floatValue],
                               @"remark": caseDeform.remark};
@@ -449,5 +426,6 @@ static NSString * const xmlName = @"CaseCountTable";
                 };
     return data;
 }
+
 
 @end

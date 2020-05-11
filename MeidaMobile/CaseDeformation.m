@@ -50,4 +50,20 @@
     fetchRequest.entity=entity;
     return [context executeFetchRequest:fetchRequest error:nil];
 }
+
++ (NSString *)stringforfloat:(float)quantity{
+    NSString * result = [NSString stringWithFormat:@"%f",quantity];
+    while([result containsString:@"."]) {
+        NSString * temp = [result substringFromIndex:result.length-1];
+        if ([temp isEqualToString:@"0"]) {
+            result = [result substringToIndex:[result length]-1];
+        }else if([[result substringFromIndex:result.length-1] isEqualToString:@"."]){
+            result = [result substringToIndex:[result length]-1];
+        }else{
+            break;
+        }
+    }
+    return result;
+}
+
 @end

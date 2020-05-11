@@ -73,5 +73,9 @@
     [self setTextQuantity:nil];
     [super viewDidUnload];
 }
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    self.preferredContentSize = CGSizeMake(520, 640);
+}
 
 @end

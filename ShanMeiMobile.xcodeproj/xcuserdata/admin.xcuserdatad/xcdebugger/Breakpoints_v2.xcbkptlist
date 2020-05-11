@@ -298,7 +298,7 @@
                   moduleName = "MeidaMobile"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/%E9%A1%B9%E7%9B%AE/ShanMeiMobileShanMei/MeidaMobile/CasePrintViewController.m"
-                  timestampString = "593316734.627682"
+                  timestampString = "608020355.259075"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "800"
@@ -313,7 +313,7 @@
                   moduleName = "MeidaMobile"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/%E9%A1%B9%E7%9B%AE/ShanMeiMobileShanMei/MeidaMobile/CasePrintViewController.m"
-                  timestampString = "593316734.632324"
+                  timestampString = "608020355.260971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "800"
@@ -401,6 +401,54 @@
             endingLineNumber = "19"
             landmarkName = "-autoParserForDataModel:andInXMLString:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeidaMobile/DeformationInfoViewController.m"
+            timestampString = "608450665.012354"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DeformationInfoViewController viewDidLoad]"
+                  moduleName = "MeidaMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/%E9%A1%B9%E7%9B%AE/ShanMeiMobileShanMei/MeidaMobile/DeformationInfoViewController.m"
+                  timestampString = "608020355.296946"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1920">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DeformationInfoViewController viewDidLoad]"
+                  moduleName = "MeidaMobile"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/%E9%A1%B9%E7%9B%AE/ShanMeiMobileShanMei/MeidaMobile/DeformationInfoViewController.m"
+                  timestampString = "608020355.298968"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1936">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -68,18 +68,36 @@
     NSEntityDescription *entity=[NSEntityDescription entityForName:@"RoadAssetPrice" inManagedObjectContext:context];
     NSFetchRequest *fecthRequest=[[NSFetchRequest alloc] init];
     [fecthRequest setEntity:entity];
-    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"is_unvarying > 0"];
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"is_unvarying >= 0"];
     NSSortDescriptor *sortDescriptor=[[NSSortDescriptor alloc] initWithKey:@"is_unvarying" ascending:YES];
     [fecthRequest setPredicate:predicate];
     [fecthRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     self.roadAssetWithLabel=[[NSMutableArray alloc] initWithCapacity:1];
     self.roadAssetWithLabel=[[context executeFetchRequest:fecthRequest error:&error] mutableCopy];
+    for(id xx  in self.roadAssetWithLabel){
+        RoadAssetPrice * item  =  xx;
+        NSLog(@"-------------");
+        NSLog(@"%@",item.label);
+
+//        NSLog(@"%@",item.document_name);
+//        NSLog(@"%@",item.is_unvarying);
+//
+//        NSLog(@"%@",item.name);
+//        NSLog(@"%@",item.price);
+//        NSLog(@"%@",item.remark);
+//        NSLog(@"%@",item.myid);
+//        NSLog(@"%@",item.roadasset_type);
+//        NSLog(@"%@",item.spec);
+        
+    }
     NSMutableArray *tempArray=[[self.roadAssetWithLabel valueForKeyPath:@"@distinctUnionOfObjects.label"] mutableCopy];
     [tempArray sortUsingSelector:@selector(localizedCompare:)];
     NSString *tempString=@"常用";
     [tempArray insertObject:tempString atIndex:0];
     self.roadAssetLabels=[NSArray arrayWithArray:tempArray];
-    
+    for(id xx  in self.roadAssetLabels){
+        NSLog(@"%@",xx);
+    }
     
     self.deformInfoVC=[self.storyboard instantiateViewControllerWithIdentifier:@"DeformBriefInfo"];
     self.deformInfoVC.delegate=self;

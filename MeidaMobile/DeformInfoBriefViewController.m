@@ -154,9 +154,9 @@
                     [cell.assetQuantityLabel setHidden:YES];
                 } else {
                     if ([deformation.unit rangeOfString:@"米"].location != NSNotFound) {
-                        cell.assetQuantityLabel.text=[NSString stringWithFormat:@"%.2f%@",deformation.quantity.doubleValue,deformation.unit];
+                        cell.assetQuantityLabel.text=[NSString stringWithFormat:@"%@%@",[CaseDeformation stringforfloat:deformation.quantity.doubleValue],deformation.unit];
                     } else {
-                        cell.assetQuantityLabel.text=[NSString stringWithFormat:@"%d%@",deformation.quantity.integerValue,deformation.unit];
+                        cell.assetQuantityLabel.text=[NSString stringWithFormat:@"%@%@",[CaseDeformation stringforfloat:deformation.quantity.floatValue],deformation.unit];
                     }
                 }
                 cell.assetTotalAmountLabel.text = [[NSString alloc] initWithFormat:@"%.2f元",deformation.total_price.doubleValue];

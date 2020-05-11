@@ -27,4 +27,6 @@
 + (NSArray *)deformationsForCase:(NSString *)caseID;
 + (NSArray *)deformationsForCase:(NSString *)caseID forCitizen:(NSString *)citizen;
 
+
++ (NSString *)stringforfloat:(float)quantity;
 @end
